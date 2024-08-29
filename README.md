@@ -48,7 +48,7 @@ Script being run:
 
 Recieved message:
 
-![placeholder](placeholder)
+![Discord alert screenshot](https://github.com/user-attachments/assets/a51fb877-c554-4596-a3b5-8103146fce10)
 
 ## License
 
