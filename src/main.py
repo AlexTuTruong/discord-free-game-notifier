@@ -21,7 +21,6 @@ def check_and_notify():
             time.sleep(0.5)
     else:
         print("No articles found")
-    data = []
 
 
 check_and_notify()
