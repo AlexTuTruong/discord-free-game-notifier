@@ -15,7 +15,6 @@ def send_embed(title, subtext, timestamp, game_url, image_url):
     formatted as an embedded message.
     """
     embed = {
-        "title": "Free game alert!",
         "description": f"[{title}]({game_url})\n{subtext}",
         "color": 2741919,
         "footer": {
@@ -53,7 +52,7 @@ def ping_users():
     """Pings all the users in the text channel"""
     message = {
         "username": "Free Games",
-        "content": "@everyone",
+        "content": "@everyone \n# Free game alert!",
     }
 
     headers = {"Content-Type": "application/json"}
@@ -81,7 +80,7 @@ if __name__ == "__main__":
     game_link = "https://gg.deals/freebie/free-disney-epic-mickey-rebrushed-demo-is-now-available/"
     sub_text = "Placeholder Subtext"
     image = (
-        "https://img.gg.deals/b0/1d/347ca876b7e8169662ce02a8a4c6f5fb019e_352cr184.jpg"
+        "https://img.gg.deals/b0/1d/347ca876b7e8169662ce02a8a4c6f5fb019e_259cr135.jpg"
     )
 
     ping_users()

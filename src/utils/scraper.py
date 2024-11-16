@@ -42,7 +42,7 @@ def get_articles() -> list:
             article.find("div", class_="news-image-wrapper")
             .find()
             .get("srcset")
-            .split(",")[0][:-5]
+            .split(",")[0][:-17] + "259cr135.jpg"
         )
 
         message = {
