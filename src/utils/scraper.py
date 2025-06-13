@@ -1,4 +1,4 @@
-import requests
+import cloudscraper
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -8,16 +8,25 @@ URL = "https://gg.deals/news/?dateRange=today&type=6"
 
 def get_articles() -> list:
     """Gets data from the "freebies" articles and returns a JSON list of their data."""
+    scraper = cloudscraper.create_scraper(
+        browser={
+            "browser": "chrome",
+            "platform": "windows",
+        },
+    )
+
     try:
-        response = requests.get(URL, timeout=30)
+        response = scraper.get(URL)
         print(
             f"[{datetime.now().replace(microsecond=0)}]",
             f"gg.deals response: {response.status_code}",
         )
-    except Exception:
+        if response.status_code != 200:
+            raise Exception(f"Bad response status: {response.status_code}")
+    except Exception as e:
         print(
             f"[{datetime.now().replace(microsecond=0)}]",
-            "Failed to get data from gg.deals",
+            f"Failed to get data from gg.deals: {e}",
         )
 
     soup = BeautifulSoup(response.text, "html.parser")
